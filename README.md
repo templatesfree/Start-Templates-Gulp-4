@@ -45,7 +45,17 @@ header.scss
 main.scss
 ```
 * При сохранении файла идет слежение за текущим ( измененным файлом ) и он сразу минифицируется и собирается в папку Local
-
+```
+local
+├── page_mobile
+    └── example_folder
+        └── example.min.scss
+        └── example.min.js
+├── page_desktop
+    └── example_folder
+        └── example.min.scss
+        └── example.min.js
+```
 ## Рекомендации по использованию:
 
 * Работа с папками производится в папке <b>GULP</b>.
