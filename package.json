@@ -1,0 +1,47 @@
+{
+  "name": "gulp4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.6.1",
+    "bootstrap": "^4.3.1",
+    "del": "^5.1.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-imagemin": "^6.1.0",
+    "gulp-rename": "^1.4.0",
+    "imagemin-giflossy": "^5.1.10",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "imagemin-webp": "^5.1.0",
+    "jquery": "^3.3.1",
+    "js-cookie": "^2.2.1",
+    "owl.carousel": "^2.3.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-changed": "^4.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "jshint": "^2.10.2",
+    "node-sass": "^4.12.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 2%"
+  ],
+  "author": "",
+  "license": "ISC"
+}
