@@ -57,6 +57,6 @@
 		data-src="1024.jpg"
 		class="lazyload"
 		alt="image with artdirection" />
-</picture>'
+</picture>
 
 ```
