@@ -49,9 +49,7 @@
 
 Так же используем тег picture:
 
-<code>
-
-'<picture>
+```
 	<!--[if IE 9]><video style="display: none"><![endif]-->
 	<source
 		data-srcset="500.jpg"
@@ -69,4 +67,4 @@
 		alt="image with artdirection" />
 </picture>'
 
-</code>
+```
