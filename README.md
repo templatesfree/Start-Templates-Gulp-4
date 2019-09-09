@@ -19,6 +19,33 @@
 * Bootstrap 4 Grid
 * Reset CSS
 
+## Структура папок
+```
+gulp
+├── fonts
+├── images
+    └── jpg
+    └── png
+    └── svg
+├── js
+│   └── main.js
+├── page_mobile
+    └── example_folder
+        └── example.scss
+        └── example.js
+├── page_desktop
+    └── example_folder
+        └── example.scss
+        └── example.js
+├── styles
+    └── components
+    └── utils
+footer.scss
+header.scss
+main.scss
+```
+* При сохранении файла идет слежение за текущим ( измененным файлом ) и он сразу минифицируется и собирается в папку Local
+
 ## Рекомендации по использованию:
 
 * Работа с папками производится в папке <b>GULP</b>.
