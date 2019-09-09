@@ -51,7 +51,7 @@
 
 <code>
 
-<picture>
+'<picture>
 	<!--[if IE 9]><video style="display: none"><![endif]-->
 	<source
 		data-srcset="500.jpg"
@@ -67,6 +67,6 @@
 		data-src="1024.jpg"
 		class="lazyload"
 		alt="image with artdirection" />
-</picture>
+</picture>'
 
 </code>
