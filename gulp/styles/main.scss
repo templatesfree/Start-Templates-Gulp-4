@@ -1,6 +1,22 @@
-@import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import './utils/typografy';
 @import './utils/reset';
-
+@import './utils/vars';
 @import './utils/mixins';
-@import './components/btns/main_btn';
-@import './components/btns/accent_btn';
+
+html, body {
+    overflow-x: hidden;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+
+    &:active, &:hover, &:visited {
+        outline: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}

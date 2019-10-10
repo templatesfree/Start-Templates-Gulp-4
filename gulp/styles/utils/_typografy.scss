@@ -1,0 +1,51 @@
+html {
+    font-size: calc(100w / 32);
+}
+
+@media screen and(min-width: 576px) and (max-width: 768px) {
+    html {
+        font-size: calc(100w / 57.6);
+    }
+}
+
+@media screen and(min-width: 768px) and (max-width: 992px) {
+    html {
+        font-size: calc(100w / 76.8);
+    }
+}
+
+@media screen and(min-width: 992px) and (max-width: 1200px) {
+    html {
+        font-size: calc(100w / 99.2);
+    }
+}
+
+@media screen and(min-width: 1200px) and (max-width: 1336px) {
+    html {
+        font-size: calc(100w / 120);
+    }
+}
+
+@media screen and(min-width: 1336px) and (max-width: 1400px) {
+    html {
+        font-size: calc(100w / 133.6);
+    }
+}
+
+@media screen and(min-width: 1440px) and (max-width: 1600px) {
+    html {
+        font-size: calc(100w / 144.4);
+    }
+}
+
+@media screen and(min-width: 1600px) and (max-width: 1920px) {
+    html {
+        font-size: calc(100w / 160);
+    }
+}
+
+@media screen and(min-width: 1920px) {
+    html {
+        font-size: calc(100w / 192);
+    }
+}

@@ -9,9 +9,10 @@ const autoprefixer = require("autoprefixer");
 const webp = require('gulp-webp');
 const rigger = require('gulp-rigger');
 const cleanCSS = require('gulp-clean-css');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const jshint = require('gulp-jshint');
 const postcss = require('gulp-postcss');
+const mixins = require('postcss-mixins');
 const rename = require("gulp-rename");
 const del = require('del');
 const changed = require('gulp-changed');
@@ -27,6 +28,11 @@ const path = {
         dist: "local/templates/kdteam/",
         watch: "gulp/**/**/*.js"
     },
+    html: {
+      src: "gulp/**/**/*.html",
+      dist: "./",
+      watch: "gulp/html/**/*.html"
+    },
     images: {
       src: [
         "gulp/**/**/*.{jpg,jpeg,png,gif,tiff,svg}"
@@ -36,10 +42,10 @@ const path = {
     },
     fonts: {
       src: [
-        "gulp/kdteam/fonts/*.{woff,woff2}"
+        "gulp/fonts/**/*.{woff,woff2,eot,ttf,eot?#iefix}"
       ],
       dist: "local/templates/kdteam/fonts/",
-      watch: "gulp/kdteam/fonts/*.{woff,woff2}"
+      watch: "gulp/fonts/**/*.{woff,woff2,eot,ttf,eot?#iefix}"
     }
   };
 
@@ -62,8 +68,8 @@ function style() {
 function script() {
   return src(path.scripts.src)
     .pipe(changed(path.scripts.dist))
-    .pipe(plumber())
     .pipe(rigger())
+    .pipe(plumber())
     .pipe(uglify())
     .pipe(rename({
       suffix: '.min'
@@ -78,12 +84,12 @@ function images() {
     .pipe(imagemin([
       imageminMozjpeg({
           progressive: true,
-          quality: 60
+          quality: 90
       }),
 
       imageminPngquant({
           speed: 5,
-          quality: [0.6, 0.8]
+          quality: [0.8, 0.9]
       }),
       
       imagemin.svgo({
@@ -107,8 +113,8 @@ function imageToWebp() {
   .pipe(webp(
     imageminWebp({
       lossless: true,
-      quality: 60,
-      alphaQuality: 60
+      quality: 80,
+      alphaQuality: 80
     })
   ))
   .pipe(dest(path.images.dist))
@@ -119,11 +125,21 @@ function fonts() {
   .pipe(dest(path.fonts.dist))
 }
 
+// function fontawesomeIcon() {
+//   return src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+//     .pipe(dest('local/templates/kdteam/webfonts/'));
+// }
+
 
 // DELETE FOLDER
 
 function cleanAll() {
-  return del(['local/templates/kdteam/**', '!local/templates/kdteam/components']);
+  return del([
+    'local/templates/kdteam/**/*',
+    '!local/templates/kdteam/components',
+    '!local/templates/kdteam/includes',
+    '!local/templates/kdteam/**/*.php'
+  ]);
 }
 
 function cleanStyle() {
@@ -140,11 +156,11 @@ function cleanImages() {
 
 // Watch files
 function watchFiles() {
-  watch(path.styles.watch, parallel(cleanStyle, style));
-  watch(path.scripts.watch, parallel(cleanScript, script));
-  watch(path.images.watch, parallel(cleanImages, images, imageToWebp));
-  watch(path.fonts.watch, parallel(fonts));
+  watch(path.styles.watch, series(cleanStyle, style));
+  watch(path.scripts.watch, series(cleanScript, script));
+  watch(path.images.watch, series(cleanImages, images, imageToWebp));
+  watch(path.fonts.watch, series(fonts));
 }
   
 // export tasks
-exports.default = series(cleanAll, parallel(style, script, images, imageToWebp, fonts, watchFiles));
+exports.default = series(cleanAll, parallel(fonts, style, script, images, imageToWebp, watchFiles));
